@@ -9,11 +9,18 @@ export default function Home() {
   return (
     <>
       <NavBar />
-      <Hero />
+      <Hero
+        text="Lorem ipsum dolor sit, amet consectetur adipisicing elit."
+        bgImage="/images/benjamin-wong.webp"
+        innerImg="/images/sarah-dorweiler.webp"
+        showBtn
+        btnText="Shop"
+        btnLink="/shop"
+      />
       <QuoteBox italic quote="Testing the quote box. This is a prop." />
       <StoreSelector />
       <MailingList />
       <Footer />
     </>
-  )
+  );
 }

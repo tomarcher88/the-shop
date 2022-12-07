@@ -1,29 +1,30 @@
 import { Link } from "react-router-dom";
 
-export default function Hero() {
+export default function Hero(props) {
+  const {text, bgImage, innerImg, showBtn, btnText, btnLink} = props;
   return (
     <article className="h-[512px] flex">
       <div className="flex flex-col md:w-3/4 md:flex-row w-fit mx-auto justify-center md:items-center">
         <img
-          src="/images/sarah-dorweiler.webp"
+          src={innerImg}
           className="max-h-80 m-2 object-cover shadow"
           alt=""
         />
         <div className="flex flex-col m-2 md:m-10">
           <p className="h-fit font-eb-garamond text-4xl mb-4 text-center md:text-left">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+            {text}
           </p>
           <Link
-            className="mx-auto md:m-0 font-eb-garamond italic font-semibold w-56 text-center text-xl bg-zinc-900 text-zinc-100 py-3 px-6 shadow hover:shadow-none"
-            to="/shop"
+            className={`${showBtn ? '' : 'hidden'} mx-auto md:m-0 font-eb-garamond italic font-semibold w-56 text-center text-xl bg-zinc-900 text-zinc-100 py-3 px-6 shadow hover:shadow-none`}
+            to={btnLink}
           >
-            Shop
+            {btnText}
           </Link>
         </div>
       </div>
       <img
         alt=""
-        src="/images/benjamin-wong.webp"
+        src={bgImage}
         className="absolute top-0 left-0 -z-10 h-[612px] w-full object-cover grayscale opacity-40"
       />
       {/* 

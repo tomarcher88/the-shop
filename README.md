@@ -6,7 +6,7 @@
 - [TailwindCSS](https://tailwindcss.com/)
 - [axios](https://axios-http.com/docs/intro)
 
-## Images sourced from:
+## 🖼️ Images sourced from:
 
 ### Homepage - Hero images
 

@@ -23,7 +23,11 @@ export const getInventory = () => {
   const fetchInventory = async () => {
     try {
       const response = await inventoryAPI.get("/products")
-      console.table(response.data)
+      // console.table(response.data)
+      const filtered = response.data.filter((item) =>
+        item.category.includes("clothing")
+      );
+      console.table(filtered);
     } catch (error) {}
   }
   fetchInventory();
