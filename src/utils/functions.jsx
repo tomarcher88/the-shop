@@ -17,18 +17,3 @@ export const navClick = (e) => {
   menuBtnClose.classList.toggle("z-50");
   menuBtnClose.classList.toggle("-z-50");
 };
-
-export const getInventory = () => {
-  console.log('Getting inventory...')
-  const fetchInventory = async () => {
-    try {
-      const response = await inventoryAPI.get("/products")
-      // console.table(response.data)
-      const filtered = response.data.filter((item) =>
-        item.category.includes("clothing")
-      );
-      console.table(filtered);
-    } catch (error) {}
-  }
-  fetchInventory();
-}
