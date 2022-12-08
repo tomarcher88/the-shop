@@ -1,11 +1,16 @@
+import { useContext } from "react";
 import { useParams, useLocation, Link } from "react-router-dom";
+import { StoreContext } from "../context/Context";
 import NavBar from "../components/NavBar";
 
 export default function ItemPage(props) {
+  const {addToBasket, removeFromBasket} = useContext(StoreContext);
   const { itemId } = useParams();
   const location = useLocation();
   const { id, title, price, description, category, image, rating } =
     location.state.data;
+
+  // TODO - Convert to components
 
   return (
     <main>
@@ -25,12 +30,12 @@ export default function ItemPage(props) {
             <h2 className="text-2xl md:text-3xl md:mt-0">{title}</h2>
             <p className="py-4 text-xl">£{price.toFixed(2)}</p>
             <p className="text-lg pb-4">{description}</p>
-            <button className="mx-auto font-eb-garamond italic font-semibold w-40 text-center text-lg bg-zinc-900 text-zinc-100 py-2 px-4 shadow hover:shadow-none">
+            <button onClick={() => addToBasket(location.state.data)} className="mx-auto font-eb-garamond italic font-semibold w-40 text-center text-lg bg-zinc-900 text-zinc-100 py-2 px-4 shadow hover:shadow-none">
               Add to Basket
             </button>
           </section>
           <img
-            className="order-1 md:order-2 w-[512px] aspect-square object-contain mb-8 md:mb-0 md:ml-5"
+            className="order-1 md:order-2 w-[512px] aspect-square object-contain mb-8 md:mb-0 md:ml-5 mx-auto"
             src={image}
             alt={title}
           />
